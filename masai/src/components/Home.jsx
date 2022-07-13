@@ -8,7 +8,7 @@ const Home = () => {
                 <h1 style={{fontWeight:'500',fontSize:'23px'}}>Today's Schedule</h1>
             </div>
             <div style={{marginRight:'5%', display:'flex',gap:'10px'}}>  
-                <button style={{padding:'7px', backgroundColor:'black',color:'red',fontWeight:'bold',borderRadius:'7px'}} >BOOKMARKS</button>
+                <button style={{padding:'7px', backgroundColor:'black',color:'#FFFFFF',fontWeight:'bold',borderRadius:'7px'}} >BOOKMARKS</button>
                 <button style={{padding:'7px', backgroundColor:'black',color:'#FFFFFF',fontWeight:'bold',borderRadius:'7px'}}>REFER & EARN</button>
             </div>
         </div>
