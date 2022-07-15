@@ -7,8 +7,7 @@ const Login = () => {
       <div
         style={{
           margin: "80px auto",
-          maxWidth: "500px",
-          backgroundColor: "#FFFFFF",
+          maxWidth: "500px", 
           borderRadius: "5px",
           display: "grid",
           gridTemplateRows: "20% 80%",
@@ -17,9 +16,10 @@ const Login = () => {
         }}
       >
         <div style={{ margin: "auto" }}>
-          <img style={{ width: "130px" }} src="masai_logo.jpg" alt="" />
+          <img style={{ width: "130px" }} src="masai_logo.png" alt="" />
         </div>
-        <div >
+        <div style={{backgroundColor: "#FFFFFF",height:'100%'}}>
+          <br />
           <GoogleLog  />
           <br />
           <h1 style={{ fontWeight: "400",position:'relative',left:'-30%' }}>Log-in with google</h1> 
