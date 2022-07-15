@@ -1,8 +1,9 @@
 import React from "react";
+import GoogleLog from "./GoogleLog";
 
 const Login = () => {
   return (
-    <div style={{ height: "800px" }}>
+    <div style={{ height: "100vh" }}>
       <div
         style={{
           margin: "80px auto",
@@ -12,74 +13,18 @@ const Login = () => {
           display: "grid",
           gridTemplateRows: "20% 80%",
           alignItems: "center",
-          height: "700px",
+          minHeight: "400px",
         }}
       >
         <div style={{ margin: "auto" }}>
           <img style={{ width: "130px" }} src="masai_logo.jpg" alt="" />
         </div>
-
-        <div
-          style={{
-            display: "grid",
-            gap: "10px",
-            textAlign: "left",
-            marginLeft: "10%",
-          }}
-        >
-          <h1 style={{ fontWeight: "bold" }}>Register User</h1>
-          <p>Email</p>
-          <input
-            style={{ maxWidth: "350px", height: "40px", borderRadius: "5px",backgroundColor:'#E8F0FE' }}
-            type="text"
-            placeholder="Enter your email / username "
-          />
-          <p>Password</p>
-          <input
-            style={{ maxWidth: "350px", height: "40px", borderRadius: "5px",backgroundColor:'#E8F0FE' }}
-            type="password"
-            placeholder="Enter your password"
-          />
-          <button
-            style={{
-              width: "fit-content",
-              backgroundColor: "black",
-              color: "#ffffff",
-              padding: "3px",
-              borderRadius: "5px",
-              fontWeight: "500",
-            }}
-          >
-            Register
-          </button>
+        <div >
+          <GoogleLog  />
           <br />
-          <hr />
+          <h1 style={{ fontWeight: "400",position:'relative',left:'-30%' }}>Log-in with google</h1> 
           <br />
-          <h1 style={{ fontWeight: "bold" }}>Log-in User</h1>
-          <p>Email</p>
-          <input
-            style={{ maxWidth: "350px", height: "40px", borderRadius: "5px",backgroundColor:'#E8F0FE' }}
-            type="text"
-            placeholder="Enter your email / username "
-          />
-          <p>Password</p>
-          <input
-            style={{ maxWidth: "350px", height: "40px", borderRadius: "5px",backgroundColor:'#E8F0FE' }}
-            type="password"
-            placeholder="Enter your password"
-          />
-          <button
-            style={{
-              width: "fit-content",
-              backgroundColor: "black",
-              color: "#ffffff",
-              padding: "3px",
-              borderRadius: "5px",
-              fontWeight: "500",
-            }}
-          >
-            LOG IN
-          </button>
+          <hr /> 
         </div>  
       </div>
     </div>
