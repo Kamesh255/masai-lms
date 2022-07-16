@@ -27,10 +27,10 @@ const Lectures = () => {
             </div> 
         </div>
 
-        <div style={{maxWidth:'80%', margin:'50px auto'}} >
+        <div style={{maxWidth:'90%', margin:'50px auto'}} >
           {updatedLectures.map((el)=>{
             return(
-              <div style={{backgroundColor:'#ffffff',Width:'80%',height:'100px',border:'1px solid #E5E7EB',display:'flex',gap:'5px',alignItems:'center',justifyContent:'space-between'}}> 
+              <div style={{backgroundColor:'#ffffff',Width:'100%',height:'100px',border:'1px solid #E5E7EB',display:'flex',gap:'5px',alignItems:'center',justifyContent:'space-between',textAlign:'left'}}> 
                   <div style={{marginLeft:'15px'}} >
                     <div style={{display:'flex',gap:'10px',alignItems:'center'}}>
                       <p style={{fontSize:'22px', color:'#4F46E5'}}>{el.lecture_title}</p>

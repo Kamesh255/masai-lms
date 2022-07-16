@@ -36,7 +36,8 @@ const Assign_upload = () => {
             <input type="date" value={assignment_date} onChange={(e)=>{ setAssignment_date(e.target.value)}} name='assignment_date' placeholder='Date'/>
             <input type="time" value={assignment_time} onChange={(e)=>{ setAssignment_time(e.target.value)}} name='assignment_time' placeholder='Time'/>
             <br />
-            <button onClick={saveAssignment}>Upload Assignment</button>
+            <button style={{borderRadius:'5px',backgroundColor:'black',color:'white',width:'fit-content',padding:'5px',margin:'auto',fontWeight:'bold'}} onClick={saveAssignment}>Upload Assignment</button>
+            <br />
         </div>
     </div>
   )

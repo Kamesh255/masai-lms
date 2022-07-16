@@ -28,7 +28,7 @@ const Lecture_update = () => {
   return (
     <div style={{height:'100vh'}}>
         <div className='upload'>
-            <p style={{fontWeight:'bold',marginTop:'10px'}}>Upload Assignment</p>
+            <p style={{fontWeight:'bold',marginTop:'10px'}}>Upload Lectures</p>
             <hr />
             <input type="text" value={lecture_title} onChange={(e)=>{ setLecture_title(e.target.value)}} name='lecture_title' placeholder='Enter Assignment' />
             <input type="text" value={lecture_teacher} onChange={(e)=>{ setLecture_teacher(e.target.value)}} name='lecture_teacher' placeholder='Enter Instructor Name ' />
@@ -37,7 +37,8 @@ const Lecture_update = () => {
             <input type="date" value={lecture_date} onChange={(e)=>{ setLecture_date(e.target.value)}} name='lecture_date' placeholder='Date'/>
             <input type="time" value={lecture_time} onChange={(e)=>{ setLecture_time(e.target.value)}} name='lecture_time' placeholder='Time'/>
             <br />
-            <button onClick={saveLecture}>Upload Lecture</button>
+            <button style={{borderRadius:'5px',backgroundColor:'black',color:'white',width:'fit-content',padding:'5px',margin:'auto',fontWeight:'bold'}} onClick={saveLecture}>Upload Lecture</button>
+            <br />
         </div>
     </div>
   )
