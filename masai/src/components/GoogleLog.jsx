@@ -4,8 +4,7 @@ import { GoogleLogin, GoogleLogout } from "react-google-login";
 
 const GoogleLog = () => {
     
-  const clientId =
-    "1024591768582-1ks7s33nckkkv9k0hcro9qgmadu8q2md.apps.googleusercontent.com";
+  const clientId ="1024591768582-1ks7s33nckkkv9k0hcro9qgmadu8q2md.apps.googleusercontent.com";
 
   const [loginBtn, setLoginBtn] = useState(true);
   const [logOutBtn, setLogOutBtn] = useState(false);
