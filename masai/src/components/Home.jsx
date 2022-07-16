@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useEffect } from 'react';
 
 const lectures=[
   {
@@ -19,16 +20,43 @@ const lectures=[
 ]
 
 const Home = () => {
-  const today = new Date();
-const yyyy = today.getFullYear();
-let mm = today.getMonth() + 1;  
-let dd = today.getDate();
 
-if (dd < 10) dd = '0' + dd;
-if (mm < 10) mm = '0' + mm;
 
-const formattedToday = dd +"-" + mm + "-" + yyyy;
-console.log(formattedToday)
+  const [lectures, setLectures] = useState([]);
+  const [today, setToday] = useState([])
+  const todayLecture = []
+  const Today = new Date();
+  const yyyy = Today.getFullYear();
+  let mm = Today.getMonth() + 1;  
+  let dd = Today.getDate();
+
+  if (dd < 10) dd = '0' + dd;
+  if (mm < 10) mm = '0' + mm;  
+const formattedToday = yyyy +"-" + mm + "-" + dd;
+ 
+
+  const getLectures = async () => {
+    try {
+      const req = await fetch("https://kamesh-masai.herokuapp.com/lecture");
+      const res = await req.json();
+      setLectures(res.items);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  useEffect(()=>{
+    getLectures()
+  },[])
+  
+ 
+ const data  = () =>{
+  for(let i = 0 ; i < lectures.length ;i++)
+  if(lectures[i].lecture_date.toString() == formattedToday.toString()){
+    todayLecture.push(lectures[i])
+  }
+ }
+  data() 
+
   return (
     <div style={{height:'100vh'}}>
         <div style={{width:'100%', minHeight:'70px', display:'flex',alignItems:'center',justifyContent:'space-between', backgroundColor:"#ffffff",borderBottom:'1px solid rgb(181, 181, 181)'}}>
@@ -41,7 +69,7 @@ console.log(formattedToday)
             </div>
         </div>
          <div style={{maxWidth:'90%', margin:'50px auto'}} >
-          {lectures.map((el)=>{
+          {todayLecture.map((el)=>{
             return(
               <div style={{backgroundColor:'#ffffff',Width:'90%',minHeight:'100px',border:'1px solid #E5E7EB',display:'flex',gap:'5px',alignItems:'center',justifyContent:'space-between'}}> 
                   <div style={{marginLeft:'15px',textAlign:'left'}} >
