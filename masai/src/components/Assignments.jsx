@@ -1,12 +1,49 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useState } from 'react'
 
 const Assignments = () => {
+  const [assignment, setAssignment] = useState([]);
+  const getAsssignment = async () => {
+    try {
+      const req = await fetch("http://localhost:3001/assignment/");
+      const res = await req.json();
+      setAssignment(res.items);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  useEffect(()=>{
+    getAsssignment()
+  },[])
+
+  console.log(assignment)
   return (
     <div>
          <div style={{width:'100%', height:'70px', display:'flex',alignItems:'center',justifyContent:'space-between', backgroundColor:"#ffffff",borderBottom:'1px solid rgb(181, 181, 181)'}}>
             <div style={{marginLeft:'5%'}}>
-                <h1 style={{fontWeight:'500',fontSize:'23px'}}>Assignments</h1>
+                <h1 style={{fontWeight:'500',fontSize:'23px'}}>Assignments</h1> 
             </div> 
+        </div>
+
+        <div style={{maxWidth:'80%', margin:'50px auto'}} >
+          {assignment.map((el)=>{
+            return(
+              <div style={{backgroundColor:'#ffffff',Width:'80%',height:'100px',border:'1px solid #E5E7EB',display:'flex',gap:'5px',alignItems:'center',justifyContent:'space-between'}}> 
+                  <div style={{marginLeft:'15px'}} >
+                    <div style={{display:'flex',gap:'10px',alignItems:'center'}}>
+                      <p style={{fontSize:'22px', color:'#4F46E5'}}>{el.assignment_title}</p>
+                      <div style={{ borderRadius:'5px',color:'#FFFFFF',backgroundColor:'green',height:'fit-content',padding:'0 10px'}}>{el.assignment_type}</div>
+                    </div>
+                    <div>
+                      <p><span style={{fontWeight:'500'}}>{el.assignment_teacher}</span> Created <span style={{fontWeight:'500'}}>{`${el.assignment_problem} Problem's`}</span> at {el.assignment_date} - {el.assignment_time} </p>
+                    </div>
+                  </div>
+                  <div style={{marginRight:'15px'}}>
+                    <button style={{fontWeight:'bold',borderRadius:'5px',backgroundColor:'#CA8A04',padding:"5px 10px 5px 10px",color:'white'}} >Progress</button>
+                  </div>
+              </div> 
+            )
+          })}
         </div>
     </div>
   )
