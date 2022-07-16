@@ -16,7 +16,9 @@ const Assignments = () => {
     getAsssignment()
   },[])
 
-  console.log(assignment)
+  const Assignment = assignment.map((el)=>el)
+  const updatedAssignment = Assignment.reverse() 
+  
   return (
     <div>
          <div style={{width:'100%', height:'70px', display:'flex',alignItems:'center',justifyContent:'space-between', backgroundColor:"#ffffff",borderBottom:'1px solid rgb(181, 181, 181)'}}>
@@ -26,7 +28,7 @@ const Assignments = () => {
         </div>
 
         <div style={{maxWidth:'80%', margin:'50px auto'}} >
-          {assignment.map((el)=>{
+          {updatedAssignment.map((el)=>{
             return(
               <div style={{backgroundColor:'#ffffff',Width:'80%',height:'100px',border:'1px solid #E5E7EB',display:'flex',gap:'5px',alignItems:'center',justifyContent:'space-between'}}> 
                   <div style={{marginLeft:'15px'}} >

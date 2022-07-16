@@ -15,8 +15,10 @@ const Lectures = () => {
   useEffect(()=>{
     getLectures()
   },[])
-
-  console.log(lectures)
+  // lectures.reverse
+  const Lectures = lectures.map((el)=>el)
+  const updatedLectures = Lectures.reverse() 
+  
   return (
     <div>
          <div style={{width:'100%', height:'70px', display:'flex',alignItems:'center',justifyContent:'space-between', backgroundColor:"#ffffff",borderBottom:'1px solid rgb(181, 181, 181)'}}>
@@ -26,7 +28,7 @@ const Lectures = () => {
         </div>
 
         <div style={{maxWidth:'80%', margin:'50px auto'}} >
-          {lectures.map((el)=>{
+          {updatedLectures.map((el)=>{
             return(
               <div style={{backgroundColor:'#ffffff',Width:'80%',height:'100px',border:'1px solid #E5E7EB',display:'flex',gap:'5px',alignItems:'center',justifyContent:'space-between'}}> 
                   <div style={{marginLeft:'15px'}} >

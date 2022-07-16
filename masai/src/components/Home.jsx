@@ -40,14 +40,14 @@ console.log(formattedToday)
                 <button style={{padding:'7px', backgroundColor:'black',color:'#FFFFFF',fontWeight:'bold',borderRadius:'7px'}}>REFER & EARN</button>
             </div>
         </div>
-         <div style={{maxWidth:'80%', margin:'50px auto'}} >
+         <div style={{maxWidth:'90%', margin:'50px auto'}} >
           {lectures.map((el)=>{
             return(
-              <div style={{backgroundColor:'#ffffff',Width:'80%',height:'100px',border:'1px solid #E5E7EB',display:'flex',gap:'5px',alignItems:'center',justifyContent:'space-between'}}> 
+              <div style={{backgroundColor:'#ffffff',Width:'90%',minHeight:'100px',border:'1px solid #E5E7EB',display:'flex',gap:'5px',alignItems:'center',justifyContent:'space-between'}}> 
                   <div style={{marginLeft:'15px',textAlign:'left'}} >
                     <div style={{display:'flex',alignItems:'center',gap:'10px'}}> 
                       <div>
-                        <div style={{backgroundColor:'#4F46E5',padding:' 15px 10px',borderRadius:'5px'}}>
+                        <div style={{backgroundColor:'#4F46E5',padding:' 15px 10px',borderRadius:'5px',}}>
                             <p style={{fontWeight:'700',color:'white'}}>{el.lecture_time}</p>
                             <p style={{fontWeight:'700',color:'white'}}>LECTURE</p>
                         </div>
