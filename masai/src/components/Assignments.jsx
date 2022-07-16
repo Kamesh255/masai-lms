@@ -5,7 +5,7 @@ const Assignments = () => {
   const [assignment, setAssignment] = useState([]);
   const getAsssignment = async () => {
     try {
-      const req = await fetch("http://localhost:3001/assignment/");
+      const req = await fetch("https://kamesh-masai.herokuapp.com/assignment/");
       const res = await req.json();
       setAssignment(res.items);
     } catch (e) {
@@ -35,7 +35,7 @@ const Assignments = () => {
                       <div style={{ borderRadius:'5px',color:'#FFFFFF',backgroundColor:'green',height:'fit-content',padding:'0 10px'}}>{el.assignment_type}</div>
                     </div>
                     <div>
-                      <p><span style={{fontWeight:'500'}}>{el.assignment_teacher}</span> Created <span style={{fontWeight:'500'}}>{`${el.assignment_problem} Problem's`}</span> at {el.assignment_date} - {el.assignment_time} </p>
+                      <p style={{fontSize:'13px'}}><span style={{fontWeight:'500'}}>{el.assignment_teacher}</span> Created <span style={{fontWeight:'500'}}>{`${el.assignment_problem} Problem's`}</span> at {el.assignment_date} - {el.assignment_time} </p>
                     </div>
                   </div>
                   <div style={{marginRight:'15px'}}>

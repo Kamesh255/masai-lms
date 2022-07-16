@@ -5,7 +5,7 @@ const Lectures = () => {
   const [lectures, setLectures] = useState([]);
   const getLectures = async () => {
     try {
-      const req = await fetch("http://localhost:3001/lecture/");
+      const req = await fetch("https://kamesh-masai.herokuapp.com/lecture");
       const res = await req.json();
       setLectures(res.items);
     } catch (e) {
@@ -35,11 +35,11 @@ const Lectures = () => {
                       <div style={{ borderRadius:'5px',color:'#FFFFFF',backgroundColor:'green',height:'fit-content',padding:'0 10px'}}>{el.video_type}</div>
                     </div>
                     <div>
-                      <p><span style={{fontWeight:'500'}}>{el.lecture_teacher}</span> Created <span style={{fontWeight:'500'}}>{`${el.lecture_type} Problem's`}</span> at {el.lecture_date} - {el.lecture_time} </p>
+                      <p style={{fontSize:'13px'}}><span style={{fontWeight:'500'}}>{el.lecture_teacher}</span> Created <span style={{fontWeight:'500'}}>{`${el.lecture_type} Problem's`}</span> at {el.lecture_date} - {el.lecture_time} </p>
                     </div>
                   </div>
                   <div style={{marginRight:'15px'}}>
-                    <button style={{fontWeight:'bold',borderRadius:'5px',backgroundColor:'#CA8A04',padding:"5px 10px 5px 10px",color:'white'}} >Progress</button>
+                    <button style={{fontWeight:'bold',borderRadius:'5px',backgroundColor:'green',padding:"5px 10px 5px 10px",color:'white'}} >Present</button>
                   </div>
               </div> 
             )
