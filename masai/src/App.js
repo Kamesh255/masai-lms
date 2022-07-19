@@ -8,6 +8,7 @@ import Lectures from './components/Lectures';
 import Lecture_upload from './components/Lecture_upload';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
+import Signup from './components/Signup';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Route path='/lectures' element={<Lectures />} /> 
         <Route path='/assignments' element={<Assignments />} /> 
         <Route path='/admin' element={<Admin />} /> 
-        <Route path='/login' element={<Login />} />   
+        <Route path='/login' element={<Login />} /> 
+        <Route path='/signup' element={<Signup />} />     
         <Route path='/assignment_upload' element={<Assign_upload />} /> 
         <Route path='/lecture_upload' element={<Lecture_upload />} />  
         

@@ -1,34 +1,60 @@
-import React from "react";
-import GoogleLog from "./GoogleLog";
+import React, { useState } from 'react'
+import {onAuthStateChanged, signInWithEmailAndPassword, signOut} from 'firebase/auth'
+import { auth } from './firebase/firebase-config';
+import { Link } from 'react-router-dom';
+ 
 
 const Login = () => {
+
+    const [registerEmail,setRegisterEmail] = useState('');
+    const [registerPassword, setRegisterPassword] = useState('')
+    const [loginEmail,setLoginEmail] = useState('');
+    const [loginPassword, setLoginPassword] = useState('')
+
+    const [user, setUser] = useState({})
+
+    onAuthStateChanged(auth,(currentUser)=>{
+      setUser(currentUser)
+    })
+
+   
+    const login = async () =>{
+      try{
+        const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
+        // console.log(user)
+        alert("Login  successfully!")
+
+        }catch(error){
+            console.log(error)
+            alert(error.message)
+        }
+    }
+    const logout= async() =>{
+      await signOut(auth)
+    }
   return (
-    <div style={{ height: "100vh" }}>
-      <div
-        style={{
-          margin: "80px auto",
-          maxWidth: "500px", 
-          borderRadius: "5px",
-          display: "grid",
-          gridTemplateRows: "20% 80%",
-          alignItems: "center",
-          minHeight: "400px",
-        }}
-      >
-        <div style={{ margin: "auto" }}>
-          <img style={{ width: "130px" }} src="masai_logo.png" alt="" />
-        </div>
-        <div style={{backgroundColor: "#FFFFFF",height:'100%'}}>
+    <div style={{height:'100vh'}}> 
+      <div style={{display:'grid',gap:'10px',maxWidth:'600px', margin:'100px auto', backgroundColor:'#ffffff', borderRadius:'10px'}}>
+           <br />
+          <div style={{display:'grid', justifyContent:'center'}}> 
+              <input style={{backgroundColor:'#E8F0FE', width:'400px', height:'35px', borderRadius:'5px', padding:'5px 20px'}} type="email" placeholder='Email...' onChange={(e)=>setLoginEmail(e.target.value)} />
+              <br />
+              <input style={{backgroundColor:'#E8F0FE', width:'400px', height:'35px', borderRadius:'5px', padding:'5px 20px'}} placeholder='Password...' onChange={(e)=>setLoginPassword(e.target.value)} />
+              <br />
+              <button style={{backgroundColor:'black', borderRadius:'5px', padding:'5px 10px', color:'white', fontWeight:'bold', width:'fit-content', margin:'auto'}} onClick={login}>Login User</button>
+          </div> 
+          <div style={{display:"flex", alignItems:'center', justifyContent:'space-between', padding:'10px 50px'}}> 
+            <p style={{fontWeight:'600'}}>{user?.email}</p> 
+            <button style={{backgroundColor:'black', borderRadius:'5px', padding:'5px 10px', color:'white', fontWeight:'bold', width:'fit-content', }} onClick={logout}>Sign Out</button>
+          </div> 
+          <hr />
+          <div>
+            <p>Need to create account ? <span><Link style={{color:'green'}} to='/signup'>SIGN UP</Link></span></p>
           <br />
-          <GoogleLog  />
-          <br />
-          <h1 style={{ fontWeight: "400",position:'relative',left:'-30%' }}>Log-in with google</h1> 
-          <br />
-          <hr /> 
-        </div>  
+          </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
